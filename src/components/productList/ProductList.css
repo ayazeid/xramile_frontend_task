@@ -1,0 +1,72 @@
+@import "../../index.css";
+
+#products-grid {
+    height: 100%;
+    flex: 0.8;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 1.5rem;
+    padding: 5rem;
+    margin:auto;
+    justify-content:center;
+  }  
+.product-card {
+    display: grid;
+    position: relative;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 4px var(--dark);
+    height: 20rem;
+    padding-top: 0.5rem;
+    grid-template-rows: repeat(8, 1fr);
+    place-items: center;
+    grid-template-areas: "product-img" "product-img" "product-img" "product-img" "product-title" "product-title" "products-price-rating" "add-to-cart";
+}
+
+.products-img {
+    grid-area: product-img;
+    max-height: 100%;
+}
+
+.products-title {
+    grid-area: product-title;
+    white-space: wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+
+
+.products-price-rating {
+    grid-area: products-price-rating;
+    width: 100%;
+    padding-inline: 1.5rem;
+    justify-content: space-between;
+}
+
+.products-rating {
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.products-rating > img {
+    height: 1rem;
+    position: relative;
+    bottom: 0.1rem;
+}
+
+.products-add-to-cart {
+    grid-area: add-to-cart;
+    position: absolute;
+    bottom: 0;
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
+    border: none;
+    background-color: var(--brown);
+    cursor: pointer;
+}
