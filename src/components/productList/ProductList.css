@@ -38,6 +38,12 @@
     max-height: 200px;
 }
 
+.products-title:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+    transition: color 0.2s ease-in-out;
+  }
 
 
 .products-price-rating {
@@ -61,11 +67,9 @@
 
 .products-add-to-cart {
     grid-area: add-to-cart;
-    position: absolute;
-    bottom: 0;
+    margin:0.5rem;
     padding: 0.5rem;
-    width: 100%;
-    border-radius: 0rem 0rem 0.5rem 0.5rem;
+    border-radius: 1rem 1rem 1rem 1rem;
     border: none;
     background-color: var(--brown);
     cursor: pointer;
