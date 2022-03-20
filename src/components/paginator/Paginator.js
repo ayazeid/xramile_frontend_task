@@ -1,14 +1,23 @@
-import React ,{useState}from 'react'
+import React ,{useState,useEffect,useContext}from 'react'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import './Paginator.css'
+import {PaginationContext} from '../../context/PaginationContext.js'
+
 function Paginator(props) {
     const {pages}=props
-  const [pageNumber, setPageNumber] = useState(1);
-  
-const setPageHandle=(page)=>{
-    setPageNumber(page)
- }
+    // const [pages,setPages]=useState(0)
+    const {updateCurrentPage}=useContext(PaginationContext)
+    const [pageNumber, setPageNumber] = useState(1);
+
+    useEffect(() => {
+        updateCurrentPage(pageNumber)
+    }, [pageNumber]);
+
+    const setPageHandle=(page)=>{
+        setPageNumber(page)
+        
+    }
   const prevPageHandle=()=>{
     let count=pageNumber-1
     setPageNumber(()=>{
@@ -22,6 +31,8 @@ const setPageHandle=(page)=>{
             return count
         }
         })
+        
+       
  }
  const nextPageHandle=()=>{
     let count=pageNumber+1

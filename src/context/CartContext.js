@@ -21,4 +21,3 @@ export const CartContextProvider = ({ children }) => {
   );
 };
 
-//this file for handling language context in the app
