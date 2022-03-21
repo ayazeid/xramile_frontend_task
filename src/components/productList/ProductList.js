@@ -1,33 +1,32 @@
-import React ,{useEffect,useState,useContext}from 'react'
-import './ProductList.css'
-import data from '../../data/db.json'
-import ProductCard from './ProductCard.js'
-import {usePaginator} from '../../hooks/usePaginator.js'
-import Paginator from '../paginator/Paginator.js'
-import {PaginationContext} from '../../context/PaginationContext.js'
+import React, { useEffect, useState, useContext } from "react";
+import "./ProductList.css";
+import ProductCard from "./ProductCard.js";
+import { PaginationContext } from "../../context/PaginationContext.js";
 // Products list
 // List of some products with images, title, price
 // Pagination
 // Client side pagination to move between the products
-
 function ProductList(props) {
-  const {currentPage,pageProducts}=useContext(PaginationContext)
-  // const [products,setProducts]=useState([])
-    // useEffect(() => {
-    //     setProducts(data['products'])    
-    // }, []);
-    // const pageProducts = usePaginator(currentPage)
-    // useEffect(() => {
-    //   setProducts(pageProducts)
-    // }, [currentPage]);
-    // console.log(currentPage)
-    
+  const { pagesProducts } = props;
+  const { currentPage } = useContext(PaginationContext);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const pages_number = Object.keys(pagesProducts).length;
+    if (pages_number) {
+      setProducts(() => {
+        return [...pagesProducts[currentPage]];
+      });
+    }
+  }, [currentPage, pagesProducts]);
   return (
     <>
-    <div id="products-grid">{pageProducts.map((product,index)=><ProductCard key={index} product={product}/>)}</div>
-    <Paginator pages={4}/>
+      <div id="products-grid">
+        {products.map((product, index) => (
+          <ProductCard key={index} product={product} />
+        ))}
+      </div>
     </>
-  )
+  );
 }
 
-export default ProductList
+export default ProductList;

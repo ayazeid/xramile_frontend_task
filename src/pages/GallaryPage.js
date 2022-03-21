@@ -1,13 +1,7 @@
-import React from 'react'
-import ProductList from '../components/productList/ProductList.js'
-import Paginator from '../components/paginator/Paginator.js'
-import {PaginationContextProvider} from '../context/PaginationContext.js'
+import React from "react";
+import ProductsPage from "../components/productList/ProductsPage.js";
 function GallaryPage() {
-  return (
-    <PaginationContextProvider>
-    <ProductList/>
-    </PaginationContextProvider>
-  )
+  return <ProductsPage />;
 }
 
-export default GallaryPage
+export default GallaryPage;
