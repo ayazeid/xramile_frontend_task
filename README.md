@@ -25,11 +25,11 @@ A simple e-commerce shopping page, with a basic cart functionality, using React 
 ## Setup
 
 To get started with this project we highly recommend the following:
-1- Clone this repository by running `git clone https://github.com/ayazeid/xramile_frontend_task.git` in your terminal or download the zip file
-2- Install project dependancies by running `yarn install`
-3- Run the app in development mode by running `yarn start`
+- 1 -  Clone this repository by running `git clone https://github.com/ayazeid/xramile_frontend_task.git` in your terminal or download the zip file
+- 2 - Install project dependancies by running `yarn install`
+- 3 - Run the app in development mode by running `yarn start`
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-4- Builds the app for production to the `build` folder.\ by running `yarn build`
+- 4 - Builds the app for production to the `build` folder.\ by running `yarn build`
 
 ## Learn More
 
