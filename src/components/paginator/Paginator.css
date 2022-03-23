@@ -1,21 +1,25 @@
 @import "../../index.css";
 
 .pagination {
-    display: inline-block;
-  }
-  
+  display: inline-block;
+}
+
 .pagination span {
-    color: var(--dark);
-    float: left;
-    padding: 8px 16px;
-    text-decoration: none;
+  color: var(--dark);
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
 }
-  
+
 .pagination span.active {
-    background-color:var(--accent);
-    color: white;
+  background-color: var(--accent);
+  color: white;
 }
-  
-.pagination span:hover:not(.active){
-    background-color:var(--blue);
+
+.pagination span:hover:not(.active) {
+  background-color: var(--blue);
+}
+
+.hide {
+  visibility: hidden;
 }

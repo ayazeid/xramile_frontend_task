@@ -2,10 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import "./ProductList.css";
 import ProductCard from "./ProductCard.js";
 import { PaginationContext } from "../../context/PaginationContext.js";
-// Products list
-// List of some products with images, title, price
-// Pagination
-// Client side pagination to move between the products
+
 function ProductList(props) {
   const { pagesProducts } = props;
   const { currentPage } = useContext(PaginationContext);

@@ -3,52 +3,39 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import "./Paginator.css";
 import { PaginationContext } from "../../context/PaginationContext.js";
+import { useValueWithinRange } from "../../hooks/useValueWithinRange";
 
 function Paginator(props) {
   const { pages } = props;
   const { updateCurrentPage } = useContext(PaginationContext);
   const [pageNumber, setPageNumber] = useState(1);
+  const checkValue = useValueWithinRange();
 
   useEffect(() => {
     updateCurrentPage(pageNumber);
-  }, [pageNumber]);
+  }, [pageNumber, updateCurrentPage]);
 
   const setPageHandle = (page) => {
     setPageNumber(page);
   };
   const prevPageHandle = () => {
-    let count = pageNumber - 1;
-    setPageNumber(() => {
-      if (count > pages) {
-        count = 1;
-        return count;
-      } else if (count < 1) {
-        count = pages;
-        return count;
-      } else {
-        return count;
-      }
-    });
+    const count = pageNumber - 1;
+    const page_number = checkValue.valueWithinRange(count, 1, pages);
+    setPageNumber(page_number);
   };
   const nextPageHandle = () => {
-    let count = pageNumber + 1;
-    setPageNumber(() => {
-      if (count > pages) {
-        count = 1;
-        return count;
-      } else if (count < 1) {
-        count = pages;
-        return count;
-      } else {
-        return count;
-      }
-    });
+    const count = pageNumber + 1;
+    const page_number = checkValue.valueWithinRange(count, 1, pages);
+    setPageNumber(page_number);
   };
 
   return (
     <div className="pagination">
       <span>
-        <NavigateBeforeIcon onClick={() => prevPageHandle()} />
+        <NavigateBeforeIcon
+          onClick={() => prevPageHandle()}
+          className={pageNumber === 1 ? "hide" : ""}
+        />
       </span>
 
       {[...Array(pages)].map((el, index) => (
@@ -61,7 +48,10 @@ function Paginator(props) {
         </span>
       ))}
       <span>
-        <NavigateNextIcon onClick={() => nextPageHandle()} />
+        <NavigateNextIcon
+          onClick={() => nextPageHandle()}
+          className={pageNumber === pages ? "hide" : ""}
+        />
       </span>
     </div>
   );
